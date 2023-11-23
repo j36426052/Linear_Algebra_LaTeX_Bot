@@ -1,0 +1,476 @@
+
+\documentclass
+[answers]
+{exam}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin = 2cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{tasks}
+\usepackage{paralist}
+\usepackage{mathrsfs}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\everymath{\displaystyle}
+\usepackage{xeCJK}   % Chinese input settings
+\setCJKmainfont{標楷體} % Windows使用者請使用這行
+
+\begin{document}
+\begin{questions}
+\question Suppose that $V = R(T) \bigoplus W $ and $W$ is T-invariant.\\
+(a) \ Prove that $W \subseteq N(T)$.\\
+(b) \ Show that if $V$ is finite-dimensional, then $W=N(T)$.\\
+(c) \ Show by example that the conclusion of (b) is not necessarily true if v is not finite-dimensional.
+\begin{solution}
+\begin{flalign*}
+(a)\ &T(W) \subseteq W \ (\text{T-invariant})\\
+&R(T) \cap T(W) \subseteq R(T) \cap W\\
+&\Rightarrow R(T) \cap T(W) \subseteq \{0\}\\
+&\because \text{W is a subspace} \\
+&\therefore W \subseteq V\\
+&\Rightarrow T(W) \subset T(V)\\
+&R(T) \cap T(W) = T(W)\\
+&\because R(T) \cap T(W) \subseteq \{0\} \  \Rightarrow T(W) \subseteq\{0\}\\
+&\text{for each}\ w \in W \ ,   T(W) =0\\
+&\Rightarrow w \in N(T)\ \text{for all }\ x \in V \\
+&\Longrightarrow W \subseteq N(T)&\\ 
+(b)\ &\text{We assume that V is a finite-dimensional vector space.}\\
+&\text{By dimension theorem, we can obtain}\ dim(V) = nullity(T) + rank(T)\\
+&\because V = W + R(T) \ (\text{by direct sum})\\
+&dim(V) = dim(W+R(T)) = dim(W) +dim(R(T)) = rank(T) + nullity(T)\\
+&\Rightarrow dim(W) = nullity(T) = dim(N(T))\\
+&\Rightarrow W = N(T)&\\
+(c)\ &\text{Let assume V be non finite-dimensional vector space}\\
+&\text{let's define V be a set of all polynomial over the field of $\mathbb{R}$}&\\
+&\text{Let's define T(g(x)) = $\frac{{df(x)}}{{dx}}$ for all g(x) $\in$ V}\\
+&N\left(T\right)=\left\{ g\left(x\right)\in V \colon T\left(g\left(x\right)\right)=0 \right\}\\
+&=\left\{ g\left(x\right)\in V \colon \frac{{df(x)}}{{dx}}=0 \right\}\\
+&=\left\{ g\left(x\right)\in V \colon g(x)=c \right\}\ \text{where c is orditrary constant} \\
+&= \mathbb{R}&\\
+&\Rightarrow \text{N(T) = $\mathbb{R}$}\\
+&\text{If W = \{0\}} \Rightarrow \text{R(T)} \cap \text{W} = \{0\}\\
+&\text{Here V = R(T) $\bigoplus$ W, we got R = N(T), W = \{0\}}\\
+&\text{but the definition of direct sum and dimension theorem is still valid if W $\neq$ N(T)}\\&
+\end{flalign*}
+\end{solution}
+    \begin{tcolorbox}
+    狀態：寫完了，需要確認  負責人：蕭宇宸    題號2-1-31
+    \end{tcolorbox}
+    \question
+Assume that $W$ is a subspace of a vector space $V$ and that $T:V\rightarrow V$ is linear.\\
+Prove that the subspaces $\lbrace0\rbrace$,$V$,$R(T)$,$N(T)$ are all $T-invarient$.
+
+\begin{solution}\\
+
+(i)\\
+Let $v$ be a vector $\in \lbrace0\rbrace$ \\
+T($v$)=T(0)=0 $\in \lbrace0\rbrace$ \\
+$\because v\in \lbrace0\rbrace$ and $T(v) \in \lbrace0\rbrace$\\
+$\therefore$ $\lbrace0\rbrace$ is $T-invarient$\\
+(ii)\\
+Let $v$ be a vector $\in V$\\
+$\because T:V\rightarrow V$\\
+$\therefore T(v)\in V$\\
+$\therefore V$ is $T-invarient$\\
+(iii)\\
+Let $v$ be a vector $\in R(T)$\\
+$\exists w\in V s.t. T(w)=v$\\
+$T(T(w))=T(v)$\\
+$\because T:V\rightarrow V$ and $v\in R(T)$\\
+$\therefore T(v)\in R(T)$\\
+$\therefore R(T)$ is $T-invarient$\\
+(iiii)\\
+Let $v$ be a vector $\in N(T)$\\
+$T(v)=0$\\
+$T(T(v))=T(0)=0$\\
+$\because T:V\rightarrow V$ and $v\in N(T)$\\
+$\therefore t(v)\in N(T)$\\
+$N(T)$ is $T-invarient$
+\end{solution}
+    \begin{tcolorbox}
+    狀態：寫完了，需要確認  負責人：葉百伶    題號2-1-28
+    \end{tcolorbox}
+    \question 
+Let $V$ be the vector space 
+
+Define the functions $T,U:V \rightarrow V$ by
+
+\[T(a_1,a_2,\ldots)=(a_2,a_3,\ldots)\ and\ U(a_1,a_2, \ldots)=(0,a_1,a_2, \ldots).\]
+
+$T$ and $U$ are called the left shift right shift operators on $V$, respectively
+
+(a) Prove that $T$ and $U$ are linear.
+
+(b) Prove that $T$ is onto, but not one-to-one.
+
+(c)Prove that $U$ is one-to-one, but not onto.
+
+\begin{solution}
+%write your answer in here
+
+
+(a)
+
+$T((a_1,a_2,\ldots)+(b_1,b_2\ldots))$
+
+$=T(a_1+b_1,a_2+b_2,\ldots)$
+
+$=(a_2+b_2,a_3+b_3,\ldots)$
+
+$=(a_2,a_3,\ldots)+(b_2,b_3,\ldots)$
+
+$=T(a_1,a_2,\ldots)+T(b_1,b_2,\ldots)$
+\\
+
+$T(c(a_1,a_2,\ldots))$
+
+$=T(ca_1,ca_2,\ldots)$
+
+$=(ca_2,ca_3,\ldots)$
+
+$=c(a_2,a_3,\ldots)$
+
+$=cT(a_1,a_2,\ldots)$
+
+$\therefore T$ is linear
+\\
+
+$U((a_1,a_2,\ldots)+(b_1,b_2\ldots))$
+
+$=U(a_1+b_1,a_2+b_2,\ldots)$
+
+$=(0,a_1+b_1,a_2+b_2,\ldots)$
+
+$=(0,a_1,a_2,\ldots)+(0,b_1,b_2,\ldots)$
+
+$=U(a_1,a_2,\ldots)+U(b_1,b_2,\ldots)$
+\\
+
+$U(c(a_1,a_2,\ldots))$
+
+$=U(ca_1,ca_2,\ldots)$
+
+$=(0,ca_1,ca_2,\ldots)$
+
+$=c(o,a_1,a_2,\ldots)$
+
+$=cU(a_1,a_2,\ldots)$
+
+$\therefore U$ is linear
+\\
+
+(b)
+
+$\because T(1,a_2,\ldots)=T(2,a_2,\ldots)=(a_2,a_3\ldots)$
+
+$\therefore$ $T$ is not one-to one
+
+For any vector $x=(x_1,x_2,\ldots)$ in V, we can find $y=(1,x_1,x_2,\ldots)$ in $V$ which satisfies $T(y)=x$
+
+$\Rightarrow x\in R(T)$
+
+$\therefore V \subseteq R(T)$
+
+$\because R(T)\subseteq V$
+
+$\therefore R(T)=V$
+
+$\Rightarrow T$ is onto
+
+(c)
+
+$U(a_1,a_2,\ldots)=(0,a_1,a_2,\ldots)$
+
+Clearly, if $U(a_1,a_2,\ldots)=(0,0,0,\ldots)$,then $a_1=a_2=\ldots=0$
+
+$\therefore N(U)={0}$
+
+$\Rightarrow U is one to one$
+
+$\because(a_1,a_2,\ldots)=(0,a_1,a_2,\ldots)$
+
+$\Rightarrow$ There are not solution for function $U(a_1,a_2,\ldots)=(2,a_1,a_2,\ldots)$
+
+$\therefore U$ is not onto.
+
+
+\end{solution}
+    \begin{tcolorbox}
+    狀態：寫完了，需要確認  負責人：張祐綸  黃可嘉    題號2-1-21
+    \end{tcolorbox}
+    \question \
+%題目
+2-1 14.
+\\Let V and W be vector space and $T:V\rightarrow W$ be linear.
+\\(a)Prove that $T$ is 1-1 if and  only if $T$ carries L.I. subsets of V onto L.I. subsets of W.
+\\(b)Suppose that $T$ is 1-1 and that S is a subset of V.	Prove that S is L.I. if and only if $T(S)$ is L.I.
+\\(c)Suppose $\beta =\left\{ v_{1},v_{2},\ldots ,v_{n}\right\} $ is a basis for V and $T$ is 1-1 and onto.	Prove that T($\beta$)=$\left\{ T\left( v_{1}\right) ,\ldots ,T\left( v_{n}\right) \right\} $ is a basis for W.
+\begin{solution}
+%write your answer in here
+\\(a)
+\\$( \Rightarrow  ) $Given $S\subseteq V$,$U\subseteq W$ are L.I. subset.
+\\Claim : $U=\left\{ w_{1},\ldots \right\} \subseteq W$ is a L.I. subset.
+\\Given $S=\left\{v_{1},\ldots \right\} \subseteq V$
+\\$\sum a_{i}w_{i}$ = $\sum a_{i}T(v_{i})$ = T($\sum a_{i}v_{i}$) = 0
+\\$\because$ T is 1-1 $\Leftrightarrow $ N(T)=$\left\{0\right\}$
+\\$\therefore$ $\sum a_{i}v_{i}$ = 0
+\\$\because$ S is L.I. $\Rightarrow$ $a_{i}$ are all zero $\therefore$ U is L.I.
+\\$( \Leftarrow  ) $ Suppose T is not 1-1, then $\exists$ distinct vectors $v_{1},v_{2}$ such that 
+\\T($v_{1}$) = T($v_{2}$) $\Rightarrow$ $w_{1}=w_{2}$ 矛盾 $\therefore$ T is 1-1
+\\(b)
+\\$( \Rightarrow  ) $ Claim : T(S) is L.I.
+\\$\sum a_{i}T(v_{i})$ = T($\sum a_{i}v_{i}$) = 0
+\\$\because$ T is 1-1 $\Leftrightarrow $ N(T)=$\left\{0\right\}$
+\\$\therefore$ $\sum a_{i}v_{i}$ = 0
+\\$\because$ S is L.I. $\Rightarrow$ $a_{i}$ are all zero $\therefore$ T($\beta$) is L.I.
+\\$(  \Leftarrow  )$Claim : S is L.I.
+\\$\because$ T($\beta$) is L.I. $\therefore$ $\sum a_{i}T(v_{i})$ = 0, $a_{i}$ are all zero
+\\ 0 = $\sum a_{i}T(v_{i})$ = T($\sum a_{i}v_{i}$)
+\\$\because$ T is 1-1 $\Leftrightarrow $ N(T)=$\left\{0\right\}$
+\\$\therefore$ $\sum a_{i}v_{i}$ = 0, $a_{i}$ are all zero
+\\$\therefore$ S is L.I.
+\\(c)
+\\<1> Claim : T($\beta$)=$\left\{ T\left( v_{1}\right) ,\ldots ,T\left( v_{n}\right) \right\} $ is L.I. 
+$\Rightarrow$ $\sum^{n}_{i=1}a_{i}T(v_{i})$ = T($\sum ^{n}_{i=1}a_{i}v_{i}$) = 0
+\\$\because$ T is 1-1 $\Leftrightarrow $ N(T)=$\left\{0\right\}$
+\\$\therefore$ $\sum^{n}_{i=1}a_{i}v_{i}$ = 0, $a_{i}$ are all zero
+\\$\therefore$ T($\beta$) is L.I.
+\\<2>$\because$ T is 1-1 $\Leftrightarrow $ N(T)=$\left\{0\right\}$ $\Leftrightarrow $ nulity(T) = 0
+\\By Dimension Theorem dim(v) = rank(T) = dim(R(T))
+\\By Thm2.2  R(T) = Span(T($\beta$))
+\\ V = Span(T($\beta$)) $\therefore$ T($\beta$) can generates V
+\\By <1>,<2> T($\beta$) is a basis of V
+\end{solution}
+    \begin{tcolorbox}
+    狀態：寫完了，需要確認  負責人：陳聖元    題號2-1-14
+    \end{tcolorbox}
+    \question 
+
+T:$P_{2}(R)$$\rightarrow$$P_{3}(R)$defined by T(f(x)) = xf(x)+f'(x)\\prove that T is a linear transformation,and find bases for both N(T) and R(T). Then compute the nullity and rank of T, and verify the dimension theorem. Finally, use the appropriate theorems in this section to determine whether T is one-to-one or onto.
+
+
+\begin{solution}\\
+  1.prove T is linear transformation.\\
+  Let f(x),g(x)$\in$$P_{2}R$\\
+  T(f(x)+g(x))=x(f(x)+g(x))+(f(x)+g(x))'\\  
+  =xf(x)+xg(x)+f'(x)+g'(x)\\  
+  =xf(x)+f'(x)+xg(x)+g'(x)\\  
+  =T(f(x))+T(g(x))\\
+  T(cf(x))=xcf(x)+cf'(x)\\=c(xf(x)+f'(x))\\
+  =cT(f(x))\\
+  
+  2.\\
+  (1)find basis for N(T)\\
+  suppose f(x)$\in$$P_{2}R$\\
+  let f(x)=$ax^2$+bx+c=0\\
+  $\because$T(f(x))=x($ax^2$+bx+c)+2ax+b=$ax^3$+$bx^2$+c=0\\$\Rightarrow$ a=0,b=0,c=0\\$\therefore$N(T)=$\lbrace0\rbrace$\\$\Rightarrow$ $\emptyset$ is a basis of N(T)\\
+  
+  (2) find basis for R(T)\\
+  By theorem 2.2\\
+We know that R(T)=span(T(1),T(x),T($x^2$))=span(x,$x^2$+1,$x^3$+2x)\\suppose (x,$x^2$+1,$x^3$+2x)is L.I.\\ let ax+b($x^2$+1)+c($x^3$+2x)=c$x^3$+b$x^2$+(a+2)x+b=0\\
+Then we only have a=b=c=0\\
+$\Rightarrow$(x,$x^2$+1,$x^3$+2x)is L.I.\\$\because$(x,$x^2$+1,$x^3$+2x) is L.I. and R(T)=span(x,$x^2$+1,$x^3$+2x)\\$\therefore$(x,$x^2$+1,$x^3$+2x)is a basis of R(T)
+
+  3.compute the nullity and rank of T, and verify the dimension theorem\\
+  state the dimension theorem:
+  if T:V$\rightarrow$W,and V is finite dimension\\
+  then nullity(T)+rank(T)=dim(V)\\
+  By2. we know that
+  nullity(T)=0\\
+  rank(T)=3\\
+  dim($P_{2}(R)$)=3\\
+  then 0+3=3\\
+  
+  4. whether T is one-to-one or onto\\
+  $\because$N(T)=$\lbrace0\rbrace$ and rank(T)$\neq$dim($P_3(R)$)\\
+  $\therefore$ T is one-to-one,but not onto
+  
+\end{solution}
+    \begin{tcolorbox}
+    狀態：寫完了，需要確認  負責人：張祐綸  黃可嘉    題號2-1-5
+    \end{tcolorbox}
+    \question
+For Exercises 2 through 6, prove that T is a linear transformation, and find bases for both N(T) and R(T). Then compute the nullity and rank of T, and verity the dimension theorem. Finally, use the appropriate theorems in this section to determine whether T is one-to-one or onto.
+
+4. $T: M_{2\times2}(F)\rightarrow M_{2\times2}(F)$ defined by 
+\[
+T\begin{pmatrix}
+  a_{11} & a_{12} & a_{13} \\
+  a_{21} & a_{22} & a_{23} \\
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+  2a_{11}-a_{12} & a_{13}+2a_{12} \\
+  0 & 0 \\
+\end{pmatrix}
+\]
+
+\begin{solution}
+\begin{flalign*}
+  <1>&proof:\\
+  &\text{1. T is linear}\\
+  &\text{2. bases for N(T), R(T)}\\
+  &\text{3. nullity(T), rank(T)}\\
+  &\text{4. dimension theorem}\\
+  &\text{5. T is one-to-one or onto}\\
+  &1.\\
+  &\text{(1) 
+  $T(0)=T\begin{pmatrix}
+  0 & 0 & 0 \\
+  0 & 0 & 0 \\
+  \end{pmatrix}
+  =\begin{pmatrix}
+  0 & 0 \\
+  0 & 0 \\
+  \end{pmatrix}$}\\
+  &\text{(2) Given $x=\begin{pmatrix}
+  a_{11} & a_{12} & a_{13} \\
+  a_{21} & a_{22} & a_{23} \\
+  \end{pmatrix}$, $y=\begin{pmatrix}
+  b_{11} & b_{12} & b_{13} \\
+  b_{21} & b_{22} & b_{23} \\
+  \end{pmatrix}$}\\
+  &\text{$T(cx+y)=T
+  \left(
+  \begin{pmatrix}
+  ca_{11} & ca_{12} & ca_{13} \\
+  ca_{21} & ca_{22} & ca_{23} \\
+  \end{pmatrix}+
+  \begin{pmatrix}
+  b_{11} & b_{12} & b_{13} \\
+  b_{21} & b_{22} & b_{23} \\
+  \end{pmatrix}
+  \right)$}\\
+  &\text{$=T\begin{pmatrix}
+  ca_{11}+b_{11} & ca_{12}+b_{12} & ca_{13}+b_{13} \\
+  ca_{21}+b_{21} & ca_{22}+b_{22} & ca_{23}+b_{23} \\
+  \end{pmatrix}$}\\
+  &\text{$=\begin{pmatrix}
+  2(ca_{11}+b_{11})-(ca_{12}+b_{12}) & ca_{13}+b_{13})+2(ca_{12}+b_{12}) \\
+  0 & 0 \\
+  \end{pmatrix}$}\\
+  &\text{$=\left(
+  \begin{pmatrix}
+  c(2a_{11}-a_{12}) & c(a_{13}+2a_{12}) \\
+  0 & 0 \\
+  \end{pmatrix}+
+  \begin{pmatrix}
+  2b_{11}-b_{12}) & b_{13}+2b_{12} \\
+  0 & 0 \\
+  \end{pmatrix}
+  \right)$}\\
+  &\text{$=cT(x)+T(y)$}\\
+  &2.\\
+  &\text{$(1) T(x)=0
+  \Rightarrow
+  \begin{cases}
+	2a_{11} - a_{12}=0 \\
+	a_{13} + 2a_{12}=0\\  
+  \end{cases}
+  \Rightarrow
+  \begin{cases}
+	2a_{11}=a_{12} \\
+	a_{13}=-2a_{12}=-4a_{11}\\  
+  \end{cases}$}\\
+  &\text{$\Rightarrow N(T)=
+  \begin{pmatrix}
+  a_{11} & 2a_{11} & -4a_{11}\\
+  a_{21} & a_{22} & a_{23} \\
+  \end{pmatrix}$}\\
+  &\text{$\Rightarrow$ basis for N(T) :$
+  \left\{
+  \begin{pmatrix}
+  1 & 2 & -4\\
+  0 & 0 & 0 \\
+  \end{pmatrix},
+  \begin{pmatrix}
+  0 & 0 & 0\\
+  1 & 0 & 0 \\
+  \end{pmatrix},
+  \begin{pmatrix}
+  0 & 0 & 0\\
+  0 & 1 & 0 \\
+  \end{pmatrix}
+  \begin{pmatrix}
+  0 & 0 & 0\\
+  0 & 0 & 1 \\
+  \end{pmatrix}
+  \right\}$}\\
+  &\text{(2) basis for R(T) :
+  $\left\{
+  \begin{pmatrix}
+  1 & 0 \\
+  0 & 0 \\
+  \end{pmatrix},
+  \begin{pmatrix}
+  0 & 1 \\
+  0 & 0 \\
+  \end{pmatrix}
+  \right\}$}\\
+  &3.\\
+  &\text{$nullity(T)=4$}\\
+  &\text{$rank(T)=2$}\\
+  &4.\\
+  &\text{$dimension\ theroem$}\\
+  &\text{dim(V)=rank(T)+nullity(T)}\\
+  &\text{$\therefore dim(M_{2\times3)}=nullity(T)+rank(T)$}\\
+  &\text{$\therefore 6=4+2$}
+  &5.\\
+  &\text{T is not 1-1 $\because 
+  N(T)=\begin{pmatrix}
+  a_{11} & 2a_{11} & -4a_{11}\\
+  a_{21} & a_{22} & a_{23} \\
+  \end{pmatrix}$}\\
+  &\text{T is not onto $\because
+  R(T)=\begin{pmatrix}
+  x & y\\
+  0 & 0\\
+  \end{pmatrix},x,y\in F$}&
+\end{flalign*}  
+\end{solution}
+    \begin{tcolorbox}
+    狀態：寫完了，需要確認  負責人：林毅芬    題號2-1-4
+    \end{tcolorbox}
+    \question Verify $T : \R^2 \longrightarrow  \R^3 $ where $T(a_1,a_2) = (a_1+a_2,0,2a_1-a_2)$ is linear transformation, find bases for both N(T) and R(T). Th use the appropriate theorems in section 2.1 to determine whether $T$ is one to one or onto.
+\begin{solution}
+\begin{flalign*}
+<1> \ &T(c(a_1,a_2) + (a_3,a_4)) \\
+ &= T(ca_1+a_3 , ca_2+a_4) \\
+ &= (ca_1+a_3+ca_2+a_4,0,2ca_1+2a_3-ca_2-a_4)\\
+ &= ((ca_1+ca_2)+(a_3+a_4),0,(2ca_1-ca_2)+(2a_3-a_4))\\
+ &= ((ca_1+ca_2),0,(2ca_1-ca_2))+((a_3+a_4),0,(2a_3-a_4))\\
+ &= (c((a_1+a_2),0,(2a_1-a_2))+((a_3+a_4),0,(2a_3-a_4))\\
+ &= cT(a_1,a_2)+T(a_3,a_4)\\
+ & \text{T is a Linear transformation}\\
+<2> \ &Claim : N(T) = \{0\}\\
+&Let \ T(a_1,a_2) = 0\\
+&(a_1+a_2,0,2a_1-a_2) = 0\\
+&\begin{cases}a_1+a_2=0\\ 2a_1-a_2=0\end{cases}\\
+&\longrightarrow \begin{cases}a_1=0\\ a_2=0\end{cases}\\
+&\therefore (0,0)\text{is the base for N(T)}\\
+&\text{The bases of the}\ \R^2\ \text{is} \ \beta\ = \{(1,0),(0,1)\} \ (\text{by thm})\\
+&R(T) = span(T(\beta)) = span(T(1,0),(0,1)) = span(\{(1,0,2),(1,0,-1)\}) \\
+&\therefore \{(1,0,2),(1,0,-1)\} \text{are the bases for R(T)}\\
+&\because dim(N(T)) = dim((0,0)) = 0\\
+&\therefore nullity(T) = 0\\
+&\because dim(R(T)) = dim(\{(1,0,2),(1,0,-1)\}) = 2\\
+&\therefore rank(T) = 2\\
+&\because dim(R^2) = 2\\
+&\therefore dim(V) = nullity(T) + rank(T)\\
+&\because nullity(T) = 0 (by thm)\\
+&\Longrightarrow \text{T is 1-1}\\
+&\because dim(W) = dim(R^3) = 3 \neq rank(T) = 2 \\
+&\Longrightarrow \text{T is not onto} \ (\text{by thm})&
+\end{flalign*}
+\end{solution}
+    \begin{tcolorbox}
+    狀態：寫完了，需要確認  負責人：葉百伶  蕭宇宸    題號2-1-3
+    \end{tcolorbox}
+    
+\end{questions}
+
+\end{document}
